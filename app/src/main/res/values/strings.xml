@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SajiApps</string>
+    <string name="hello">Hello</string>
+    <string name="sign_in_to_">Sign in to your account</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="welcome">Selamat Datang</string>
+    <string name="searchbar_hint">Mau masak apa hari ini?</string>
+    <string name="daftar">Daftar</string>
+    <string name="silakan_daftar">Silakan Daftar Akun Terlebih Dahulu</string>
+
+</resources>

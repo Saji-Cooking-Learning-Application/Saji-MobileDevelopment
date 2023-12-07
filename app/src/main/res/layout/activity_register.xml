@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+    <TextView
+        android:id="@+id/daftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="top"
+        android:text="@string/daftar"
+        android:textColor="@color/helloColors"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/silakan_daftar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="top"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/silakan_daftar"
+        android:textSize="12sp"
+        android:textColor="@color/blackFont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daftar" />
+
+    <TextView
+        android:id="@+id/tv_namalengkap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:alpha="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Nama Lengkap"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/NamaLengkapTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/silakan_daftar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NamaLengkapTextInput"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:alpha="1"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_namalengkap"
+        app:placeholderText="Nama Lengkap"
+        >
+
+        <EditText
+            android:id="@+id/edNamaLengkap"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Username"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/UsernameTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/NamaLengkapTextInput" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/UsernameTextInput"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:alpha="1"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"
+        app:placeholderText="Username"
+        >
+
+        <EditText
+            android:id="@+id/edUsername"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Email"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/EmailTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/UsernameTextInput" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/EmailTextInput"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:alpha="1"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email"
+        app:placeholderText="Email"
+        >
+
+        <EditText
+            android:id="@+id/edEmail"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvNumberPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="No Hp"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/EmailTextInput"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PhoneTextInput"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:alpha="1"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumberPhone"
+        app:placeholderText="Email"
+        tools:layout_editor_absoluteX="32dp">
+
+        <EditText
+            android:id="@+id/edPhone"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
