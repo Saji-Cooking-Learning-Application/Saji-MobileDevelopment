@@ -10,5 +10,8 @@
     <string name="searchbar_hint">Mau masak apa hari ini?</string>
     <string name="daftar">Daftar</string>
     <string name="silakan_daftar">Silakan Daftar Akun Terlebih Dahulu</string>
+    <string name="scanner">Scanner</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

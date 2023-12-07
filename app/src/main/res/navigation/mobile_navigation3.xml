@@ -22,4 +22,15 @@
         android:name="com.dicoding.sajiapps.home.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.dicoding.sajiapps.home.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="profile"/>
+    <activity
+        android:id="@+id/scanner"
+        android:name="com.dicoding.sajiapps.home.ui.scanner.ScannerActivity"
+        android:label="Scanner"
+        tools:layout="@layout/activity_scanner" />
+
 </navigation>
