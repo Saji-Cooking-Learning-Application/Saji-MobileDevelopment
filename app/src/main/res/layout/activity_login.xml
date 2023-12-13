@@ -73,36 +73,34 @@
         android:id="@+id/UsernameTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_username"
-        app:startIconDrawable="@drawable/user"
-        >
+        app:startIconDrawable="@drawable/user">
 
         <EditText
             android:id="@+id/edUsername"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PasswordTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_password"
-        app:startIconDrawable="@drawable/lock"
-        app:endIconMode="password_toggle">
+        app:startIconDrawable="@drawable/lock">
 
         <EditText
             android:id="@+id/edPassword"
@@ -159,6 +157,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <TextView
+        android:id="@+id/daftarSekarang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

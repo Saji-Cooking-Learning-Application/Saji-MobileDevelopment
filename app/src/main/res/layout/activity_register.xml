@@ -54,22 +54,20 @@
         android:id="@+id/NamaLengkapTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
+        app:placeholderText="Masukkan Nama Lengkap"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_namalengkap"
-        app:placeholderText="Nama Lengkap"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tv_namalengkap">
 
         <EditText
             android:id="@+id/edNamaLengkap"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -89,22 +87,20 @@
         android:id="@+id/UsernameTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_username"
-        app:placeholderText="Username"
-        >
+        app:placeholderText="Masukkan Username">
 
         <EditText
             android:id="@+id/edUsername"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -124,22 +120,20 @@
         android:id="@+id/EmailTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
+        app:placeholderText="Masukkan Email"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_email"
-        app:placeholderText="Email"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tv_email">
 
         <EditText
             android:id="@+id/edEmail"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -152,8 +146,8 @@
         android:text="No Hp"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/EmailTextInput"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintStart_toStartOf="@+id/PhoneTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/EmailTextInput" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/PhoneTextInput"
@@ -162,9 +156,9 @@
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/EmailTextInput"
         app:layout_constraintTop_toBottomOf="@+id/tvNumberPhone"
-        app:placeholderText="Email"
-        tools:layout_editor_absoluteX="32dp">
+        app:placeholderText="Masukkan No Hp">
 
         <EditText
             android:id="@+id/edPhone"
@@ -173,5 +167,53 @@
             android:background="@drawable/edit_text"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Password"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/PasswordTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/PhoneTextInput" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/PasswordTextInput"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:alpha="1"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:placeholderText="Masukkan Password"
+        app:layout_constraintEnd_toEndOf="@+id/PhoneTextInput"
+        app:layout_constraintStart_toStartOf="@+id/PhoneTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/tvPassword"
+        app:endIconMode="password_toggle">
+
+        <EditText
+            android:id="@+id/edPassword"
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Daftar"
+        android:background="@drawable/button_success"
+        app:layout_constraintEnd_toEndOf="@+id/PasswordTextInput"
+        app:layout_constraintStart_toStartOf="@+id/PasswordTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextInput" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
