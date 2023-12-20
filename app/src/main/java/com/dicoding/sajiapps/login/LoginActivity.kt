@@ -10,7 +10,6 @@ import com.dicoding.sajiapps.ViewModelFactory
 import com.dicoding.sajiapps.data.UserModel
 import com.dicoding.sajiapps.databinding.ActivityLoginBinding
 import com.dicoding.sajiapps.home.HomeActivity
-import com.dicoding.sajiapps.home.ui.home.HomeFragment
 import com.dicoding.sajiapps.register.RegisterActivity
 import kotlinx.coroutines.launch
 
@@ -56,6 +55,16 @@ class LoginActivity : AppCompatActivity() {
                                 create()
                                 show()
                             }
+                        }
+                    }
+                    if (message == "Password Salah"){
+                        AlertDialog.Builder(this@LoginActivity).apply {
+                            setTitle("Failed!")
+                            setMessage("Gagal Login, Coba Cek Username atau Password Anda")
+                            setPositiveButton("Lanjut") { _, _ ->
+                            }
+                            create()
+                            show()
                         }
                     }
                 }

@@ -2,6 +2,7 @@ package com.dicoding.sajiapps.data
 
 import com.dicoding.sajiapps.response.LoginResponse
 import com.dicoding.sajiapps.response.RegisterResponse
+import com.dicoding.sajiapps.response.ResepResponse
 import com.dicoding.sajiapps.retrofit.ApiService
 import kotlinx.coroutines.flow.Flow
 
@@ -14,10 +15,14 @@ class UserRepository private constructor(
         userPreference.saveSession(user)
     }
 
+
     fun getSession(): Flow<UserModel> {
         return userPreference.getSession()
     }
 
+    suspend fun getResep(token: String): ResepResponse{
+        return apiService.getResep(token)
+    }
     suspend fun logout() {
         userPreference.logout()
     }

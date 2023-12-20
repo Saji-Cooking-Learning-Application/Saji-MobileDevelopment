@@ -6,11 +6,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import com.dicoding.sajiapps.R
 import com.dicoding.sajiapps.ViewModelFactory
 import com.dicoding.sajiapps.databinding.ActivityRegisterBinding
 import com.dicoding.sajiapps.login.LoginActivity
-import com.dicoding.sajiapps.login.LoginViewModels
 import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {

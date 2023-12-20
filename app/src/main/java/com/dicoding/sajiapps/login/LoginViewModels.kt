@@ -15,8 +15,9 @@ class LoginViewModels(private val repository: UserRepository) : ViewModel() {
 
     private val _msg = MutableLiveData<String>()
     val msg: LiveData<String> get() = _msg
-    suspend fun validateAndLogin(username: String, password: String): LoginResponse? {
 
+    suspend fun validateAndLogin(username: String, password: String): LoginResponse? {
+        // Melakukan validasi username dan password
         if (isCredentialsValid(username, password)) {
             try {
                 _loading.value = true
@@ -37,7 +38,9 @@ class LoginViewModels(private val repository: UserRepository) : ViewModel() {
     }
 
     private fun isCredentialsValid(username: String, password: String): Boolean {
-        return username.length >= 6 && password.length >= 8
+        // Lakukan validasi sesuai dengan kriteria yang Anda inginkan
+        // Misalnya, pastikan panjang username minimal 6 karakter, password memiliki kombinasi karakter tertentu, dll.
+        return username.length >= 1 && password.length >= 8
     }
 
     fun saveSession(user: UserModel){
@@ -46,3 +49,4 @@ class LoginViewModels(private val repository: UserRepository) : ViewModel() {
         }
     }
 }
+

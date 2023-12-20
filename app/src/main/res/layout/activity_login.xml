@@ -28,7 +28,7 @@
         android:id="@+id/hello"
         android:layout_width="165dp"
         android:layout_height="78dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="top"
@@ -62,12 +62,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:alpha="1"
-        android:text="Username"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/sign_in_to_"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_to_"
         android:fontFamily="@font/poppins_bold"
-        android:textSize="12sp"/>
+        android:text="Username"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/UsernameTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_to_" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/UsernameTextInput"

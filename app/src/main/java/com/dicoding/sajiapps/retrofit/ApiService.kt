@@ -2,8 +2,11 @@ package com.dicoding.sajiapps.retrofit
 
 import com.dicoding.sajiapps.response.LoginResponse
 import com.dicoding.sajiapps.response.RegisterResponse
+import com.dicoding.sajiapps.response.ResepResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
@@ -23,4 +26,9 @@ interface ApiService {
         @Field("email") email: String,
         @Field("hp") hp: String,
     ): RegisterResponse
+
+    @GET("resep")
+    suspend fun getResep(
+        @Header("Authorization") token: String
+    ): ResepResponse
 }

@@ -4,14 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.dicoding.sajiapps.ViewModelFactory
 import com.dicoding.sajiapps.databinding.FragmentHomeBinding
+import com.dicoding.sajiapps.response.DataItem
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
-
+    private val viewModel by viewModels<HomeViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -23,8 +30,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         (activity as? AppCompatActivity)?.supportActionBar?.hide()
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -38,12 +43,27 @@ class HomeFragment : Fragment() {
                     false
                 }
         }
+        viewModel.listFood.observe(viewLifecycleOwner){
+            setFood(it as ArrayList<DataItem>)
+        }
+        lifecycleScope.launch {
+            viewModel.getAllFood()
+        }
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return root
+    }
+
+    private fun setFood(foodItems: ArrayList<DataItem>){
+        val adapter = FoodAdapter(foodItems)
+
+        // Mengubah LinearLayoutManager menjadi StaggeredGridLayoutManager
+        val spanCount = 2 // Ganti dengan jumlah kolom yang diinginkan
+        val layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+        layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
+        binding.rvListFood.layoutManager = layoutManager
+
+        binding.rvListFood.setHasFixedSize(true)
+        binding.rvListFood.adapter = adapter
     }
 
     override fun onDestroyView() {
