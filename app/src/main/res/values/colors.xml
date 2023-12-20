@@ -6,4 +6,5 @@
     <color name="helloColors">#2AA915</color>
     <color name="blackFont">#171515</color>
     <color name="buttonActive">#1FCC79</color>
+    <color name="transparant">#00FFFFFF</color>
 </resources>

@@ -1,5 +1,6 @@
 package com.dicoding.sajiapps.retrofit
 
+import com.dicoding.sajiapps.response.DetailResepResponse
 import com.dicoding.sajiapps.response.LoginResponse
 import com.dicoding.sajiapps.response.RegisterResponse
 import com.dicoding.sajiapps.response.ResepResponse
@@ -31,4 +32,10 @@ interface ApiService {
     suspend fun getResep(
         @Header("Authorization") token: String
     ): ResepResponse
+
+    @GET("resep/{id}")
+    suspend fun getDetailResep(
+        @Header("Authorization") token: String,
+        @Field("id") id: Int
+    ): DetailResepResponse
 }

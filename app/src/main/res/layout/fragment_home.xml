@@ -76,7 +76,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="@+id/search_bar"
         app:layout_constraintStart_toStartOf="@+id/menuMasakan"
-        android:background="@color/white"
+        android:background="@color/transparant"
         app:layout_constraintTop_toBottomOf="@+id/menuMasakan"
         tools:listitem="@layout/item_masakan"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

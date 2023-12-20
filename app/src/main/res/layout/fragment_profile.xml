@@ -43,22 +43,20 @@
         android:id="@+id/NamaLengkapTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_namalengkap"
-        app:placeholderText="Nama Lengkap"
-        >
+        app:placeholderText="Nama Lengkap">
 
         <EditText
             android:id="@+id/edNamaLengkap"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -78,22 +76,20 @@
         android:id="@+id/UsernameTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_username"
-        app:placeholderText="Username"
-        >
+        app:placeholderText="Username">
 
         <EditText
             android:id="@+id/edUsername"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -113,22 +109,20 @@
         android:id="@+id/EmailTextInput"
         android:layout_width="330dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
         android:alpha="1"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_email"
-        app:placeholderText="Email"
-        >
+        app:placeholderText="Email">
 
         <EditText
             android:id="@+id/edEmail"
             android:layout_width="330dp"
             android:layout_height="match_parent"
             android:background="@drawable/edit_text"
-            android:inputType="text"
-            />
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -164,5 +158,17 @@
             android:enabled="false"
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_keluar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_danger"
+        android:text="@string/logOut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/PhoneTextInput"
+        app:layout_constraintStart_toStartOf="@+id/PhoneTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/PhoneTextInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
