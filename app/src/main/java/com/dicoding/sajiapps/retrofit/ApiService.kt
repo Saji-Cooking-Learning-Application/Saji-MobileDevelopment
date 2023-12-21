@@ -1,14 +1,17 @@
 package com.dicoding.sajiapps.retrofit
 
+import com.dicoding.sajiapps.response.Data
 import com.dicoding.sajiapps.response.DetailResepResponse
 import com.dicoding.sajiapps.response.LoginResponse
 import com.dicoding.sajiapps.response.RegisterResponse
 import com.dicoding.sajiapps.response.ResepResponse
+import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
     @FormUrlEncoded
@@ -32,10 +35,9 @@ interface ApiService {
     suspend fun getResep(
         @Header("Authorization") token: String
     ): ResepResponse
-
     @GET("resep/{id}")
     suspend fun getDetailResep(
         @Header("Authorization") token: String,
-        @Field("id") id: Int
-    ): DetailResepResponse
+        @Path("id") id:Int
+    ): Response<Data>
 }

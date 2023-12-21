@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.dicoding.sajiapps.databinding.FragmentNotificationsBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.sajiapps.R
+import com.dicoding.sajiapps.databinding.FragmentKulkasBinding
 
-class NotificationsFragment : Fragment() {
+class KulkasFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+//    private var mList = ArrayList<KulkasData>()
+    private var _binding: FragmentKulkasBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var adapter: KulkasAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,10 +26,14 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentKulkasBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        binding.rvListFood.setHasFixedSize(true)
+        binding.rvListFood.layoutManager = LinearLayoutManager(requireContext())
 
-        val textView: TextView = binding.textNotifications
+
+
+//        val textView: TextView = binding.textNotifications
         return root
     }
 

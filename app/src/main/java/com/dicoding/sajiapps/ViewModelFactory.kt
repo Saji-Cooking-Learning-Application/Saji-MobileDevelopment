@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.sajiapps.data.UserRepository
+import com.dicoding.sajiapps.detail.DetailViewModels
 import com.dicoding.sajiapps.di.Injection
 import com.dicoding.sajiapps.home.ui.home.HomeViewModel
 import com.dicoding.sajiapps.home.ui.profile.ProfileViewModels
@@ -28,6 +29,8 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
                 HomeViewModel(repository) as T
             }modelClass.isAssignableFrom(ProfileViewModels::class.java) -> {
                 ProfileViewModels(repository) as T
+            }modelClass.isAssignableFrom(DetailViewModels::class.java) -> {
+                DetailViewModels(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

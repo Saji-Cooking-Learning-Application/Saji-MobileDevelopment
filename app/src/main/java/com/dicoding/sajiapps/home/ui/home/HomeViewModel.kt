@@ -21,13 +21,13 @@ class HomeViewModel(private val repository: UserRepository) : ViewModel() {
     val  cekMessage: LiveData<String> get() = _cekMessage
 
     suspend fun getAllFood(){
-        val tokenStory = repository.getSession().first().token
-        val story = repository.getResep("Bearer $tokenStory")
-        val message = story.message
+        val tokenResep = repository.getSession().first().token
+        val resep = repository.getResep("Bearer $tokenResep")
+        val message = resep.message
         try {
             _loading.value = false
             //get success message
-            _listFood.value = story.data
+            _listFood.value = resep.data
             _cekMessage.value = message!!
         } catch (e: HttpException) {
             //get error message
@@ -37,5 +37,21 @@ class HomeViewModel(private val repository: UserRepository) : ViewModel() {
             val errorMessage = errorBody.message
             errorMessage!!
         }
+    }
+    fun searchFood(query: String) {
+        val filteredList = mutableListOf<DataItem>()
+
+        // Lakukan filtering dari listFood berdasarkan query
+        val foodList = listFood.value ?: return // Ambil nilai listFood dari LiveData
+
+        // Lakukan filtering dari foodList berdasarkan query
+        for (foodItem in foodList) {
+            if (foodItem.namaMenu.contains(query, ignoreCase = true)) {
+                filteredList.add(foodItem)
+            }
+        }
+
+        // Update data yang terfilter ke LiveData listFood
+        _listFood.value = filteredList
     }
 }

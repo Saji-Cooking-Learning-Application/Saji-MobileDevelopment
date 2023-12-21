@@ -29,18 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             // Pindah ke MainActivity setelah splashTimeOut
-            viewModel.getSession().observe(this) { user ->
-                if (!user.isLogin) {
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                else{
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-            }// Tutup activity splash agar tidak bisa diakses lagi
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            setupView()
         }, splashTimeOut)
 
         setupView()

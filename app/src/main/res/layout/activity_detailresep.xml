@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.DetailResepActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_detailResep"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:src="@drawable/terongbalado"/>
+
+        <TextView
+            android:id="@+id/tv_judulResep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/terongBalado"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_detailResep" />
+
+        <TextView
+            android:id="@+id/tv_deskripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/desc"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_judulResep"
+            app:layout_constraintTop_toBottomOf="@+id/tv_judulResep" />
+
+        <TextView
+            android:id="@+id/tv_isiDesc"
+            android:layout_width="360sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/poppins_medium"
+            android:text="\nTerong balado adalah hidangan khas Indonesia yang terdiri dari terong yang digoreng dan disajikan dengan sambal balado, yaitu sambal pedas yang terbuat dari cabai, bawang, tomat, dan bumbu-bumbu lainnya yang diuleg atau dihaluskan. Terong balado memiliki kombinasi rasa pedas, gurih, dan sedikit manis yang membuatnya lezat dan populer di meja makan Indonesia. Hidangan ini sering dihidangkan sebagai lauk pendamping nasi putih dan dapat ditemui dalam berbagai variasi tergantung pada selera dan kebiasaan lokal."
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_deskripsi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nutrisi"
+            app:layout_constraintStart_toStartOf="@+id/tv_isiDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tv_isiDesc"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nutrisi"
+            app:layout_constraintStart_toStartOf="@+id/tv_isiDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tv_isiDesc"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_isiNutrisi"
+            android:layout_width="360sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/poppins_medium"
+            android:text=""
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_deskripsi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

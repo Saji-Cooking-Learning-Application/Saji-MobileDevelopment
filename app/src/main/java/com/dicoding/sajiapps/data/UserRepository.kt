@@ -1,5 +1,7 @@
 package com.dicoding.sajiapps.data
 
+import com.dicoding.sajiapps.response.Data
+import com.dicoding.sajiapps.response.DetailResepResponse
 import com.dicoding.sajiapps.response.LoginResponse
 import com.dicoding.sajiapps.response.RegisterResponse
 import com.dicoding.sajiapps.response.ResepResponse
@@ -27,6 +29,9 @@ class UserRepository private constructor(
         userPreference.logout()
     }
 
+    suspend fun getDetailResep(token: String, id: Int): Data? {
+        return apiService.getDetailResep(token, id).body()
+    }
     suspend fun login(username: String, password: String): LoginResponse{
         return apiService.login(username, password)
     }

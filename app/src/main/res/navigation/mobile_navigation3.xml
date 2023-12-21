@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.dicoding.sajiapps.home.ui.notifications.NotificationsFragment"
+        android:name="com.dicoding.sajiapps.home.ui.notifications.KulkasFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_kulkas" />
     <fragment
         android:id="@+id/profile"
         android:name="com.dicoding.sajiapps.home.ui.profile.ProfileFragment"

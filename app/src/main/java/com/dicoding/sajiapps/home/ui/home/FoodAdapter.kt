@@ -12,6 +12,7 @@ import com.dicoding.sajiapps.response.DataItem
 class FoodAdapter(private val listFood: List<DataItem>): ListAdapter<DataItem, FoodAdapter.FoodViewHolder>(DIFF_CALLBACK) {
     private var onItemClickCallback: OnItemClickCallback? = null
     inner class FoodViewHolder(private val binding: ItemMasakanBinding): RecyclerView.ViewHolder(binding.root) {
+
         fun bind(food: DataItem) {
             binding.root.setOnClickListener {
                 onItemClickCallback?.onItemClicked(food)

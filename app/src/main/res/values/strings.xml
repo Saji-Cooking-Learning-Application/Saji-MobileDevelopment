@@ -18,5 +18,8 @@
     <string name="isidesc">Isi Desc :</string>
     <string name="judul">Judul</string>
     <string name="logOut">Keluar</string>
-
+    <string name="isiDesc">Pancake memiliki ciri khas rasa yang manis walaupun tanpa topping apapun. Namun tak jarang yang menyajikan pancake dengan topping-topping manis seperti madu, saus stroberi, hingga buah-buahan.</string>
+    <string name="kulkas">Kulkas</string>
+    <string name="kulkas_content">Bingung mau masak apa? Cek isi kulkasmu dan dapatkan beragam inspirasi resep</string>
+    <string name="terongBalado">Terong Balado</string>
 </resources>

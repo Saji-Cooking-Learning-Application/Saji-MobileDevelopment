@@ -1,5 +1,6 @@
 package com.dicoding.sajiapps.home.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dicoding.sajiapps.ViewModelFactory
 import com.dicoding.sajiapps.databinding.FragmentHomeBinding
+import com.dicoding.sajiapps.detail.DetailResepActivity
 import com.dicoding.sajiapps.response.DataItem
 import kotlinx.coroutines.launch
 
@@ -39,8 +40,9 @@ class HomeFragment : Fragment() {
             searchView
                 .editText
                 .setOnEditorActionListener { textView, actionId, event ->
-                    val search = searchBar.text
-                    false
+                    val searchQuery = searchBar.text.toString()
+                    viewModel.searchFood(searchQuery)
+                    true
                 }
         }
         viewModel.listFood.observe(viewLifecycleOwner){
@@ -64,10 +66,24 @@ class HomeFragment : Fragment() {
 
         binding.rvListFood.setHasFixedSize(true)
         binding.rvListFood.adapter = adapter
+        adapter.setOnItemCallback(object : FoodAdapter.OnItemClickCallback{
+            override fun onItemClicked(data: DataItem) {
+                val id = data.id
+                Intent(this@HomeFragment.requireContext(), DetailResepActivity::class.java).also { intent ->
+                    // Misalkan data yang ingin Anda sertakan ke DetailResepActivity adalah ID dan nama dari DataItem
+                    intent.putExtra(DetailResepActivity.EXTRA_ID, id)
+                    intent.putExtra(DetailResepActivity.IMG, data.foto)
+                    intent.putExtra(DetailResepActivity.EXTRA_MENU, data.namaMenu)
+                    startActivity(intent)
+                }
+            }
+
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
