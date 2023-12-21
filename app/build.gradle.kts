@@ -10,13 +10,14 @@ android {
 
     defaultConfig {
         applicationId = "com.dicoding.sajiapps"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", "\"https://saji-cc-api-2srtjzs7ba-et.a.run.app/\"")
+        buildConfigField("String", "BASE_URL_PREDICT", "\"https://saji-cc-predict-api-2srtjzs7ba-et.a.run.app/\"")
     }
     buildFeatures{
         viewBinding = true
@@ -66,4 +67,6 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.google.mlkit:object-detection:16.0.0") // For Object Detection
+    implementation ("com.google.mlkit:object-detection-custom:16.0.0") // For custom models
 }

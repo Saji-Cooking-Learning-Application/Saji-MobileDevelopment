@@ -8,7 +8,7 @@ data class BahanResponse(
 	val code: Int? = null,
 
 	@field:SerializedName("data")
-	val data: List<DataItemBahan?>? = null,
+	val data: List<DataItemBahan>,
 
 	@field:SerializedName("message")
 	val message: String? = null,

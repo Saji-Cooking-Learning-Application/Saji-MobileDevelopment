@@ -1,5 +1,6 @@
 package com.dicoding.sajiapps.data
 
+import com.dicoding.sajiapps.response.BahanResponse
 import com.dicoding.sajiapps.response.Data
 import com.dicoding.sajiapps.response.DetailResepResponse
 import com.dicoding.sajiapps.response.LoginResponse
@@ -24,6 +25,9 @@ class UserRepository private constructor(
 
     suspend fun getResep(token: String): ResepResponse{
         return apiService.getResep(token)
+    }
+    suspend fun getBahan(token: String): BahanResponse{
+        return apiService.getBahan(token)
     }
     suspend fun logout() {
         userPreference.logout()

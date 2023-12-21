@@ -10,10 +10,6 @@
         android:icon="@drawable/ic_scanner"
         android:title="@string/scanner" />
 
-    <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_add"
-        android:title="Tambah Resep" />
 
     <item
         android:id="@+id/navigation_notifications"

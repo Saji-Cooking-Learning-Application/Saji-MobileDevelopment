@@ -1,5 +1,6 @@
 package com.dicoding.sajiapps.retrofit
 
+import com.dicoding.sajiapps.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,6 +20,19 @@ class ApiConfig {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             return retrofit.create(ApiService::class.java)
+        }
+        fun getApiServicePredict():ApiServicePredict{
+            val logginInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            val client = OkHttpClient.Builder()
+                .addInterceptor(logginInterceptor)
+                .build()
+            val baseUrlPredict = BuildConfig.BASE_URL_PREDICT
+            val retrofit = Retrofit.Builder()
+                .baseUrl(baseUrlPredict)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            return retrofit.create(ApiServicePredict::class.java)
         }
     }
 }

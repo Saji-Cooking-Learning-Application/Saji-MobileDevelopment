@@ -10,13 +10,19 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import com.dicoding.sajiapps.ViewModelFactory
 import com.dicoding.sajiapps.databinding.ActivityScannerBinding
 import com.dicoding.sajiapps.detail.DetailBahanActivity
 import com.dicoding.sajiapps.detail.DetailResepActivity
+import com.dicoding.sajiapps.login.LoginViewModels
 import com.dicoding.sajiapps.utils.getImageUri
 
 class ScannerActivity : AppCompatActivity() {
+    private val viewModel by viewModels<ScannerViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     private lateinit var binding: ActivityScannerBinding
     private var currentImageUri: Uri? = null
@@ -30,7 +36,25 @@ class ScannerActivity : AppCompatActivity() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
+        viewModel.predictionResult.observe(this, { predictionResponse ->
+            // Handle the prediction result, e.g., update the UI or navigate based on the result
+            // For example, if you want to pass data to DetailResepActivity:
+            val intent = Intent(this, DetailResepActivity::class.java).apply {
+                // pass data with intent.putExtra()
+            }
+            startActivity(intent)
+            finish()
+        })
 
+        viewModel.isLoading.observe(this, { isLoading ->
+            // Show or hide loading indicator
+            // e.g., binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        })
+
+        viewModel.errorMessage.observe(this, { errorMessage ->
+            // Show error message
+            Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
+        })
         binding.cameraDeteksiMakanan.setOnClickListener { startCamera() }
         binding.cameraDeteksiBahan.setOnClickListener { startCameraBahan() }
     }
@@ -48,11 +72,8 @@ class ScannerActivity : AppCompatActivity() {
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
-            showImage()
-            showButton(true).apply {
-                val intent = Intent(this@ScannerActivity, DetailResepActivity::class.java)
-                startActivity(intent)
-                finish()
+            currentImageUri?.let { uri ->
+                viewModel.predictImage(uri, this@ScannerActivity)
             }
         }
     }
@@ -62,12 +83,12 @@ class ScannerActivity : AppCompatActivity() {
     ) { isSuccess ->
         if (isSuccess) {
             showImage()
-            showButton(true).apply {
-                val intent = Intent(this@ScannerActivity, DetailBahanActivity::class.java)
-                startActivity(intent)
-                finish()
-
-            }
+//            showButton(true).apply {
+//                val intent = Intent(this@ScannerActivity, DetailBahanActivity::class.java)
+//                startActivity(intent)
+//                finish()
+//
+//            }
         }
     }
 
