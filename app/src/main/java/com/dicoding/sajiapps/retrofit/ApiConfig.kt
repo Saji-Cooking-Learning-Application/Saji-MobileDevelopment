@@ -9,7 +9,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfig {
     companion object{
         fun getApiService(token: String):ApiService{
-            val logginInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            val logginInterceptor = if ( BuildConfig.DEBUG
+            ) {
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            } else {
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+            }
             val client = OkHttpClient.Builder()
                 .addInterceptor(logginInterceptor)
                 .build()
@@ -22,9 +27,14 @@ class ApiConfig {
             return retrofit.create(ApiService::class.java)
         }
         fun getApiServicePredict():ApiServicePredict{
-            val logginInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            val loggingInterceptor = if ( BuildConfig.DEBUG
+            ) {
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            } else {
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+            }
             val client = OkHttpClient.Builder()
-                .addInterceptor(logginInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .build()
             val baseUrlPredict = BuildConfig.BASE_URL_PREDICT
             val retrofit = Retrofit.Builder()

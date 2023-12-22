@@ -18,6 +18,11 @@ import com.dicoding.sajiapps.detail.DetailBahanActivity
 import com.dicoding.sajiapps.detail.DetailResepActivity
 import com.dicoding.sajiapps.login.LoginViewModels
 import com.dicoding.sajiapps.utils.getImageUri
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+import java.io.FileOutputStream
 
 class ScannerActivity : AppCompatActivity() {
     private val viewModel by viewModels<ScannerViewModel> {
@@ -37,13 +42,13 @@ class ScannerActivity : AppCompatActivity() {
         }
 
         viewModel.predictionResult.observe(this, { predictionResponse ->
-            // Handle the prediction result, e.g., update the UI or navigate based on the result
-            // For example, if you want to pass data to DetailResepActivity:
-            val intent = Intent(this, DetailResepActivity::class.java).apply {
-                // pass data with intent.putExtra()
-            }
-            startActivity(intent)
-            finish()
+//            // Handle the prediction result, e.g., update the UI or navigate based on the result
+//            // For example, if you want to pass data to DetailResepActivity:
+//            val intent = Intent(this, DetailResepActivity::class.java).apply {
+//                // pass data with intent.putExtra()
+//            }
+//            startActivity(intent)
+//            finish()
         })
 
         viewModel.isLoading.observe(this, { isLoading ->
@@ -73,22 +78,23 @@ class ScannerActivity : AppCompatActivity() {
     ) { isSuccess ->
         if (isSuccess) {
             currentImageUri?.let { uri ->
-                viewModel.predictImage(uri, this@ScannerActivity)
+                viewModel.processImage(uri, this@ScannerActivity)
             }
         }
     }
+
 
     private val launcherIntentCameraBahan = registerForActivityResult(
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
             showImage()
-//            showButton(true).apply {
-//                val intent = Intent(this@ScannerActivity, DetailBahanActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//
-//            }
+            showButton(true).apply {
+                val intent = Intent(this@ScannerActivity, DetailBahanActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }
         }
     }
 
@@ -115,6 +121,19 @@ class ScannerActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
     private fun showButton(isShow: Boolean) {
         binding.galeriBtn.visibility = if (isShow) View.VISIBLE else View.GONE
+    }
+    private fun convertUriToFile(uri: Uri): File {
+        val inputStream = contentResolver.openInputStream(uri)
+        val file = File(cacheDir, "temp_image") // You can use a timestamp or other naming convention
+        val outputStream = FileOutputStream(file)
+
+        inputStream.use { input ->
+            outputStream.use { output ->
+                input?.copyTo(output)
+            }
+        }
+
+        return file
     }
 
     companion object {

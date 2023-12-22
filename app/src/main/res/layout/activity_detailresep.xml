@@ -7,12 +7,13 @@
     tools:context=".detail.DetailResepActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_detailResep"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:src="@drawable/terongbalado"/>
+            android:src="@drawable/terongbalado"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tv_judulResep"
@@ -49,15 +50,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Nutrisi"
-            app:layout_constraintStart_toStartOf="@+id/tv_isiDesc"
-            app:layout_constraintTop_toBottomOf="@+id/tv_isiDesc"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="16sp"/>
-        <TextView
+            android:id="@+id/judulNutrisi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -68,15 +61,113 @@
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/tv_isiNutrisi"
-            android:layout_width="360sp"
+            android:id="@+id/jumlah_kalori"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:justificationMode="inter_word"
+            android:padding="8dp"
+            android:text="Jumlah Kalori: 100 kalori"
             android:fontFamily="@font/poppins_medium"
-            android:text=""
             android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_deskripsi"
-            app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
+            app:layout_constraintStart_toStartOf="@+id/judulNutrisi"
+            app:layout_constraintTop_toBottomOf="@id/judulNutrisi" />
+        <TextView
+            android:id="@+id/protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protein: 100 gram"
+            android:padding="8dp"
+            android:textSize="10sp"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintStart_toStartOf="@+id/jumlah_kalori"
+            app:layout_constraintTop_toBottomOf="@id/jumlah_kalori"
+            />
+        <TextView
+            android:id="@+id/lemak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lemak: 2 gram"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="10sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/protein"
+            app:layout_constraintTop_toBottomOf="@id/protein"/>
+
+        <TextView
+            android:id="@+id/karbohidrat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Karbohidrat: 6 gram"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="10sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/lemak"
+            app:layout_constraintTop_toBottomOf="@id/lemak"/>
+
+        <TextView
+            android:id="@+id/serat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="10sp"
+            android:text="Serat: 3 gram"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/karbohidrat"
+            app:layout_constraintTop_toBottomOf="@id/karbohidrat"/>
+
+        <TextView
+            android:id="@+id/vitamin_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="Vitamin A: 10%"
+            android:fontFamily="@font/poppins_medium"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/serat"
+            app:layout_constraintTop_toBottomOf="@id/serat"/>
+
+        <TextView
+            android:id="@+id/vitamin_C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="10sp"
+            android:text="Vitamin C: 3%"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/vitamin_A"
+            app:layout_constraintTop_toBottomOf="@id/vitamin_A"/>
+
+        <TextView
+            android:id="@+id/dan_lain_lain"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="10sp"
+            android:layout_height="wrap_content"
+            android:layout_width="360sp"
+            android:text="Terong balado, selain memiliki rasa yang lezat, juga dapat memberikan beberapa kelebihan berdasarkan bahan-bahan yang digunakan dan karakteristiknya."
+            android:padding="8dp"
+            android:justificationMode="inter_word"
+            app:layout_constraintStart_toStartOf="@+id/vitamin_C"
+            app:layout_constraintTop_toBottomOf="@id/vitamin_C"/>
+
+        <TextView
+            android:id="@+id/resep_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Resep:"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/dan_lain_lain"
+            app:layout_constraintTop_toBottomOf="@id/dan_lain_lain" />
+
+        <ListView
+            android:id="@+id/list_bahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="@+id/resep_title"
+            app:layout_constraintTop_toBottomOf="@id/resep_title"
+            tools:listitem="@layout/item_resep" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

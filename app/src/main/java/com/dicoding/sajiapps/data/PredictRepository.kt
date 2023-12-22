@@ -8,24 +8,10 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
 class PredictRepository(private val apiService: ApiServicePredict) {
-    suspend fun predictImage(file: File): PredictResponse? {
-        // Create a RequestBody instance from the file
-        val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-
-        // MultipartBody.Part is used to send also the actual file name
-        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
-
-        // Make the API call
-        val response = apiService.postPredict(body)
-
-        if (response.isSuccessful) {
-            // Return the body of the response
-            return response.body()
-        } else {
-            // Throw an exception or handle errors as needed
-            throw Exception(response.errorBody()?.string() ?: "An error occurred during the API call")
-        }
+    suspend fun predictImage(file: MultipartBody.Part): PredictResponse? {
+       return apiService.postPredict(file)
     }
+
 
     companion object {
         @Volatile

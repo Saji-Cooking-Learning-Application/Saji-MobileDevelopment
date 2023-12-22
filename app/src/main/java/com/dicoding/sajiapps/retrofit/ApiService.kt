@@ -57,6 +57,6 @@ interface ApiServicePredict{
     @POST("predict/makanan")
     suspend fun postPredict(
         @Part file: MultipartBody.Part
-    ): Response<PredictResponse>
+    ): PredictResponse
 
 }
